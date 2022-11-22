@@ -4,8 +4,8 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRockets } from '../../../redux/rockets/rockets';
-import { Container, Row, Col, Image } from 'react-bootstrap';
-import "./Rocket.css"
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import "./Rocket.css";
 import { v4 as uuidv4 } from 'uuid';
 
 const Rockets = () => {
@@ -21,15 +21,14 @@ const Rockets = () => {
 }, [rockets])
   return (
     <Container fluid className="container">
-      <h1>This is the rockets page</h1>
       {rockets.map(element => {
       return( 
       <Row key={uuidv4()}>
-        <Col xs={3} className="eachbox"><Image fluid src={element.flickr_images[0]} alt= {element.flickr_images[0]}/></Col>
+        <Col className="eachbox" xs={5}><Image fluid src={element.flickr_images[0]} alt= {element.flickr_images[0]}/></Col>
         <Col className="eachbox">
           <h1>{element.name}</h1>
           <p>{element.description}</p>
-          <button type="button">Reserve Rocket</button>
+          <Button variant="primary" type="button">Reserve Rocket</Button>
         </Col>
       </Row>
       )
