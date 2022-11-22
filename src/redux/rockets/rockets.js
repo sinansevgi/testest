@@ -6,7 +6,6 @@ export const fetchRockets = createAsyncThunk(
   'FETCH',
   async () => {
     const data = await (fetch(url)).then((res) => res.json());
-    console.log(data);
     const response = data.map((rocket) => ({
       id: rocket.rocket_id,
       name: rocket.rocket_name,

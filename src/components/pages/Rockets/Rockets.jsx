@@ -1,7 +1,7 @@
 /* eslint linebreak-style: ["error", "windows"] */
 /* eslint-disable */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRockets } from '../../../redux/rockets/rockets';
 import { Container, Row, Col, Image } from 'react-bootstrap';
@@ -11,13 +11,17 @@ import { v4 as uuidv4 } from 'uuid';
 const Rockets = () => {
   const dispatch = useDispatch();
   const rockets = useSelector((state) => state.rocketsReducer);
-//   useEffect(() => {
-//     dispatch(fetchBooks());
-// }, [])
+  const dataFetchedRef = useRef(false);
+  useEffect(() => {
+    if (dataFetchedRef.current){ return }
+    else{
+      dataFetchedRef.current = true;
+      dispatch(fetchRockets());
+  }
+}, [rockets])
   return (
     <Container fluid className="container">
       <h1>This is the rockets page</h1>
-      <button type="button" onClick={() => dispatch(fetchRockets())}>Click to log out data</button>
       {rockets.map(element => {
       return( 
       <Row key={uuidv4()}>
