@@ -6,11 +6,13 @@ export const fetchRockets = createAsyncThunk(
   'FETCH',
   async () => {
     const data = await (fetch(url)).then((res) => res.json());
+    console.log(data);
     const response = data.map((rocket) => ({
       id: rocket.rocket_id,
       name: rocket.rocket_name,
       type: rocket.rocket_type,
       flickr_images: rocket.flickr_images,
+      description: rocket.description,
     }));
     return response;
   },
