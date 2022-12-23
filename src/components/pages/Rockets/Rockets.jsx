@@ -37,5 +37,5 @@ const Rockets = () => {
 };
 
 let sinan = "Sinan";
-
+let sinan = () => {"sinan"};
 export default Rockets;
