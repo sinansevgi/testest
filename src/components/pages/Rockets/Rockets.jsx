@@ -34,6 +34,6 @@ const Rockets = () => {
       ))}
     </Container>
   );
-};
+};;;
 
 export default Rockets;
