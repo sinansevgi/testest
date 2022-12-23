@@ -34,6 +34,8 @@ const Rockets = () => {
       ))}
     </Container>
   );
-};;;
+};
+
+let sinan = "Sinan";
 
 export default Rockets;
